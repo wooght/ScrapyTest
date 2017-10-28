@@ -15,3 +15,7 @@ class WooghtItem(scrapy.Item):
     description = scrapy.Field()    #网页描述
     url = scrapy.Field()            #网页url地址
     a_text = scrapy.Field()         #地址上的文字
+
+class SteadItem(scrapy.Item):
+    city = scrapy.Field()
+    intnumber = scrapy.Field()
