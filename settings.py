@@ -67,6 +67,7 @@ COOKIES_ENABLED = True         #开启cookiemiddle 功能
 #注册pipeline
 ITEM_PIPELINES = {
    'wooght.pipelines.WooghtPipeline': 1,    #值越小越先执行
+   'wooght.pipelines.SteadPipeline':1,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

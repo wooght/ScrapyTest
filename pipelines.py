@@ -26,3 +26,11 @@ class WooghtPipeline(object):
     #spider 被关闭时调用此函数
     def close_spider(self,spider):
         pass
+
+class SteadPipeline(object):
+    def __init__(self):
+        self.file = open('hoemstead.json','w',encoding='utf-8')
+    def process_item(self,item,spider):
+        line = json.dumps(dict(item),ensure_ascii=False)+"\n"
+        self.file.write(line)
+        return item

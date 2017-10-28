@@ -17,5 +17,5 @@ class WooghtItem(scrapy.Item):
     a_text = scrapy.Field()         #地址上的文字
 
 class SteadItem(scrapy.Item):
-    city = scrapy.Field()
-    intnumber = scrapy.Field()
+    city = scrapy.Field()           #城市
+    intnumber = scrapy.Field()      #城市对应的数据
