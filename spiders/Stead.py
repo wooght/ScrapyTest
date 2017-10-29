@@ -19,7 +19,7 @@ class SteadSpider(scrapy.Spider):
         "Cache-Control": "no-cache",
         "Connection": "keep-alive",
         "Content-Type": "application/x-www-form-urlencoded"}
-    posts = {'email':'wooght@126.com','password':'111111'}
+    posts = {'email':'wooght@126.com','password':'111111'}                      #post 请求内容
 
     #重写开始请求函数
     def start_requests(self):
