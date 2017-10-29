@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
+
 import scrapy
-from wooght.items import JsItem                              #引入容器
+from wooght.items import JsItem                                 #引入容器
 
 from scrapy.http import Request, FormRequest, HtmlResponse      #应用到FormRequest来post提交,Request请求cookie
 
 
 class SteadSpider(scrapy.Spider):
     name = 'Js'
-    allowed_domains = ['xueqiu']                             #规定本spider的地址域
+    allowed_domains = ['xueqiu']                                                #规定本spider的地址域
     urls = ['https://xueqiu.com/ask/square']
+    #headers 部分
     user_agent="Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
     headers={
         'User-Agent':user_agent,
@@ -18,7 +20,6 @@ class SteadSpider(scrapy.Spider):
         "Cache-Control": "no-cache",
         "Connection": "keep-alive",
         "Content-Type": "application/x-www-form-urlencoded"}
-    posts = {'email':'wooght@126.com','password':'111111'}                      #post 请求内容
 
     #重写开始请求函数
     def start_requests(self):
