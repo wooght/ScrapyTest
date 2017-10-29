@@ -7,12 +7,12 @@
 
 from scrapy.exceptions import DropItem
 import json
+import time
 
 class WooghtPipeline(object):
     def __init__(self):
-        #打开文件,设定打开编码类型
         self.file = open('data.json','w',encoding='utf-8')
-
+        print('=========================================44===============================>')
     #pipeline 主函数 用于处理item数据
     def process_item(self, item, spider):
         line = json.dumps(dict(item),ensure_ascii=False) + "\n"
@@ -29,7 +29,18 @@ class WooghtPipeline(object):
 
 class SteadPipeline(object):
     def __init__(self):
-        self.file = open('hoemstead.json','w',encoding='utf-8')
+        self.file = open('hoemstead.json','a+',encoding='utf-8')
+        print('----------------------------------------------44------------------------>')
+    def process_item(self,item,spider):
+        line = json.dumps(dict(item),ensure_ascii=False)+"\n"
+        self.file.write(line)
+        return item
+
+class JsPipeline(object):
+    def __init__(self):
+        print("----------------------------------->is runing")
+        self.file = open('json/xueqiu.json','a+',encoding='utf-8')
+        self.file.write("=======>"+time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+"<======\n")
     def process_item(self,item,spider):
         line = json.dumps(dict(item),ensure_ascii=False)+"\n"
         self.file.write(line)

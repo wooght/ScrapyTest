@@ -18,7 +18,8 @@ NEWSPIDER_MODULE = 'wooght.spiders'
 #USER_AGENT = 'wooght (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
+
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -26,7 +27,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.1              #抓取时间间隔
+DOWNLOAD_DELAY = 3              #抓取时间间隔
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -66,9 +67,15 @@ COOKIES_ENABLED = True         #开启cookiemiddle 功能
 
 #注册pipeline
 ITEM_PIPELINES = {
-   'wooght.pipelines.WooghtPipeline': 1,    #值越小越先执行
-   'wooght.pipelines.SteadPipeline':1,
+   'wooght.pipelines.WooghtPipeline': 999,    #值越小越先执行
+   'wooght.pipelines.SteadPipeline':999,
+   'wooght.pipelines.JsPipeline':999
 }
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'wooght.middlewares.JavaScriptMiddleware': 543, #键为中间件类的路径，值为中间件的顺序
+#     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None, #禁止内置的中间件
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

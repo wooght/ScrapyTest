@@ -19,3 +19,7 @@ class WooghtItem(scrapy.Item):
 class SteadItem(scrapy.Item):
     city = scrapy.Field()           #城市
     intnumber = scrapy.Field()      #城市对应的数据
+
+class JsItem(scrapy.Item):
+    ask = scrapy.Field()
+    answer = scrapy.Field()
